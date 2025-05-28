@@ -1,0 +1,294 @@
+
+
+@charset "UTF-8";
+
+/* Importazione di font personalizzati (es. Google Fonts) */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap");
+
+// Definiamo delle variabili per i colori e i font per maggiore riusabilità
+$primary-color: #5A3C02;
+$secondary-color: #FDE0A5;
+$text-color-base: #0c0b0b;
+$text-color-light: #e9ecef;
+$text-color-gray: #6c757d;
+$background-light: #f8f9fa;
+$background-dark-sections: #f5f3ec;
+$background-white: #ffffff;
+$hero-overlay-color: rgba(0, 0, 0, 0.5);
+$shadow-light: rgba(0, 0, 0, 0.1);
+$shadow-medium: rgba(0, 0, 0, 0.15);
+$shadow-dark: rgba(0, 0, 0, 0.7);
+$shadow-hero-text: rgba(239, 224, 224, 0.7);
+
+$font-body: "Open Sans", sans-serif;
+$font-headings: "Montserrat", sans-serif;
+$font-hero: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+$font-cv-page: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+
+/* Regole globali */
+body {
+  font-family: $font-body; /* Font di base */
+  line-height: 1.6;
+  color: $text-color-base; /* Colore testo di base */
+  background-color: $background-light; /* Sfondo leggero */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-headings; /* Font per i titoli */
+  font-weight: 700;
+}
+
+// Sezioni generali con sfondo
+#about, #skills, #portfolio, #contact {
+  background-color: $background-dark-sections;
+}
+
+/* Navbar personalizzata */
+.navbar {
+  background-color: $primary-color !important; /* Rende la navbar leggermente trasparente */
+  box-shadow: 0 2px 4px $shadow-light; /* Aggiunge una leggera ombra */
+
+  // Nidificazione per elementi all'interno della navbar
+  &-brand { // Corrisponde a .navbar-brand
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $secondary-color !important; /* Colore brand */
+  }
+
+  &-nav { // Corrisponde a .navbar-nav
+    .nav-link { // Corrisponde a .navbar-nav .nav-link
+      color: $text-color-light !important; /* Colore link navbar */
+      margin-left: 15px;
+      transition: color 0.3s ease;
+
+      // Nidificazione per stati (hover, active)
+      &:hover, // Corrisponde a .navbar-nav .nav-link:hover
+      &.active { // Corrisponde a .navbar-nav .nav-link.active
+        color: $secondary-color !important; /* Colore link al hover e attivo */
+      }
+    }
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  background: url("../img/img2.jfif") no-repeat center/cover; /* Immagine di sfondo */
+  height: 110vh; /* Altezza piena della viewport */
+  position: relative; /* Per posizionare il contenuto interno */
+  z-index: 1; /* Per assicurare che il contenuto sia sopra l'overlay */
+  padding-top: 140px; /* Compensazione per la navbar fissa */
+
+  // Nidificazione per l'overlay e i testi all'interno della hero section
+  &::before { // Corrisponde a .hero-section::before
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $hero-overlay-color; /* Overlay semitrasparente */
+    z-index: -1;
+  }
+
+  h1 { // Corrisponde a .hero-section h1
+    font-size: 4.5rem; /* Dimensione del titolo */
+    font-family: $font-hero;
+    color: $secondary-color;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px $shadow-dark; /* Ombra per leggibilità */
+  }
+
+  p.lead { // Corrisponde a .hero-section p.lead
+    font-size: 1.75rem; /* Dimensione del sottotitolo */
+    font-family: $font-hero;
+    color: $secondary-color;
+    text-shadow: 1px 1px 3px $shadow-hero-text;
+  }
+}
+
+.btn-primary {
+  background-color: $primary-color; /* Colore bottone principale */
+  border-color: darken($primary-color, 15%); // Usiamo una funzione Sass per il border-color
+  padding: 15px 30px;
+  font-size: 1.25rem;
+  border-radius: 50px; /* Bottone arrotondato */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  &:hover { // Corrisponde a .btn-primary:hover
+    background-color: #423D29; // O darken($primary-color, 10%)
+    border-color: #16140E; // O darken($primary-color, 20%)
+  }
+}
+
+/* AVATAR */
+.avatar {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0px auto;
+  border-radius: 50%;
+  transition: transform 0.3s ease; // Spostata qui per non avere due blocchi .avatar
+
+  &:hover { // Corrisponde a .avatar:hover
+    transform: scale(1.05);
+  }
+}
+
+/* Sezioni generiche */
+section {
+  padding: 80px 0; /* Padding verticale per tutte le sezioni */
+
+  // Nidificazione per i tipi di sezioni
+  &:nth-of-type(odd) { // Corrisponde a section:nth-of-type(odd)
+    background-color: $background-light;
+  }
+
+  &:nth-of-type(even) { // Corrisponde a section:nth-of-type(even)
+    background-color: $background-white;
+  }
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+
+  // Nidificazione per lo pseudo-elemento ::after
+  &::after { // Corrisponde a h2::after
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: $primary-color;
+    margin: 10px auto 0;
+  }
+}
+
+/* Stile per bottone cv */
+.my-custom-button {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: $font-headings;
+  color: #ffffff;
+  background-color: $primary-color;
+  border: 2px solid $primary-color;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  margin-top: 2rem;
+
+  &:hover { // Corrisponde a .my-custom-button:hover
+    background-color: #423D29; // O darken($primary-color, 10%)
+    color: $secondary-color;
+    transform: scale(1.05);
+  }
+}
+
+/* Stile per le card nel portfolio */
+.card {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  // Nidificazione per gli elementi interni alla card
+  &:hover { // Corrisponde a .card:hover
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px $shadow-medium;
+  }
+
+  &-img-top { // Corrisponde a .card-img-top
+    height: 200px;
+    object-fit: cover;
+  }
+
+  &-body { // Corrisponde a .card-body
+    padding: 25px;
+  }
+
+  &-title { // Corrisponde a .card-title
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  &-text { // Corrisponde a .card-text
+    font-size: 0.95rem;
+    color: $text-color-gray;
+  }
+
+  .btn { // Corrisponde a .card .btn
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: $primary-color !important;
+  color: $text-color-light;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+
+  // Nidificazione per le icone social nel footer
+  .social-icons { // Corrisponde a footer .social-icons
+    margin-top: 10px;
+
+    img { // Corrisponde a footer .social-icons img
+      width: 40px;
+      height: 40px;
+      margin: 0 10px;
+      vertical-align: middle;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+ 
+
+      &:hover { // Corrisponde a footer .social-icons img:hover
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  // Nidificazione per i titoli della hero section all'interno della media query
+  .hero-section {
+    h1 {
+      font-size: 3rem;
+    }
+    p.lead {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+/* Pagina Curriculum Vitae */
+body.cv-page {
+  background-color: #fdfaf6 !important; // Potresti voler definire una variabile anche qui
+  color: #4e342e !important;
+  font-family: $font-cv-page !important;
+   }
+
+
+  // Nidificazione per le sezioni all'interno della pagina CV
+  section { // Corrisponde a body.cv-page section
+    background-color: #fffaf4 !important;
+    padding: 20px !important;
+    margin-bottom: 30px !important;
+    border-radius: 15px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  footer {
+    background-color: $primary-color !important;
+    color: $text-color-light;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+  }

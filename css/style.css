@@ -1,0 +1,231 @@
+@charset "UTF-8";
+/* Importazione di font personalizzati (es. Google Fonts) */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap");
+/* Regole globali */
+body {
+  font-family: "Open Sans", sans-serif; /* Font di base */
+  line-height: 1.6;
+  color: #0c0b0b; /* Colore testo di base */
+  background-color: #f8f9fa; /* Sfondo leggero */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif; /* Font per i titoli */
+  font-weight: 700;
+}
+
+#about, #skills, #portfolio, #contact {
+  background-color: #f5f3ec;
+}
+
+/* Navbar personalizzata */
+.navbar {
+  background-color: #5A3C02 !important; /* Rende la navbar leggermente trasparente */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Aggiunge una leggera ombra */
+}
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #FDE0A5 !important; /* Colore brand */
+}
+.navbar-nav .nav-link {
+  color: #e9ecef !important; /* Colore link navbar */
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+  color: #FDE0A5 !important; /* Colore link al hover e attivo */
+}
+
+/* Hero Section */
+.hero-section {
+  background: url("../img/img2.jfif") no-repeat center/cover; /* Immagine di sfondo */
+  height: 110vh; /* Altezza piena della viewport */
+  position: relative; /* Per posizionare il contenuto interno */
+  z-index: 1; /* Per assicurare che il contenuto sia sopra l'overlay */
+  padding-top: 140px; /* Compensazione per la navbar fissa */
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay semitrasparente */
+  z-index: -1;
+}
+.hero-section h1 {
+  font-size: 4.5rem; /* Dimensione del titolo */
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #FDE0A5;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombra per leggibilità */
+}
+.hero-section p.lead {
+  font-size: 1.75rem; /* Dimensione del sottotitolo */
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #FDE0A5;
+  text-shadow: 1px 1px 3px rgba(239, 224, 224, 0.7);
+}
+
+.btn-primary {
+  background-color: #5A3C02; /* Colore bottone principale */
+  border-color: #0f0a00;
+  padding: 15px 30px;
+  font-size: 1.25rem;
+  border-radius: 50px; /* Bottone arrotondato */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #423D29;
+  border-color: #16140E;
+}
+
+/* AVATAR */
+.avatar {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0px auto;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Sezioni generiche */
+section {
+  padding: 80px 0; /* Padding verticale per tutte le sezioni */
+}
+section:nth-of-type(odd) {
+  background-color: #f8f9fa;
+}
+section:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #5A3C02;
+  margin: 10px auto 0;
+}
+
+/* Stile per bottone cv */
+.my-custom-button {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  background-color: #5A3C02;
+  border: 2px solid #5A3C02;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  margin-top: 2rem;
+}
+.my-custom-button:hover {
+  background-color: #423D29;
+  color: #FDE0A5;
+  transform: scale(1.05);
+}
+
+/* Stile per le card nel portfolio */
+.card {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.card-img-top {
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card-body {
+  padding: 25px;
+}
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.card-text {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+.card .btn {
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #5A3C02 !important;
+  color: #e9ecef;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+footer .social-icons {
+  margin-top: 10px;
+}
+footer .social-icons img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+footer .social-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 3rem;
+  }
+  .hero-section p.lead {
+    font-size: 1.25rem;
+  }
+}
+/* Pagina Curriculum Vitae */
+body.cv-page {
+  background-color: #fdfaf6 !important;
+  color: #4e342e !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+section {
+  background-color: #fffaf4 !important;
+  padding: 20px !important;
+  margin-bottom: 30px !important;
+  border-radius: 15px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+footer {
+  background-color: #5A3C02 !important;
+  color: #e9ecef;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}/*# sourceMappingURL=style.css.map */
